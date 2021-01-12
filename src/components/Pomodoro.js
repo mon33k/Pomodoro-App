@@ -1,6 +1,6 @@
 import React from 'react'
 import "../stylesheets/pomodoro.css"
-import Timer from './Timer'
+// import Timer from './Timer'
 
 class Pomodoro extends React.Component {
     constructor() {
@@ -10,10 +10,18 @@ class Pomodoro extends React.Component {
         }
     }
 
+    
+
+    componentDidMount () {
+        console.log("this.props.setTime --> ", this.props.setTime(12))
+
+    }
+
     render() {
+
         return (
             <div className="pom-container">
-                <Timer />
+                {/* <Timer /> */}
             </div>
         )
     }

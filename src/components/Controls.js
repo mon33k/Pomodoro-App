@@ -7,16 +7,36 @@ class Controls extends React.Component {
         this.state ={ 
 
         }
+        this.startTimer = this.startTimer.bind(this);
+        this.stopTimer = this.stopTimer.bind(this);
+    }
+
+    startTimer = (e) => {
+        e.preventDefault()
+        console.log("start timer")
+    }
+
+    stopTimer = (e) => {
+        e.preventDefault()
+        console.log("end timer")
+    }
+
+    pauseTimer = () => {
+        console.log("pause timer")
+    }
+
+    resetTimer = () => {
+        console.log("reset timer")
     }
 
 
 
-
     render() {
+
         return(
             <div className="control-container">
-                <button className="start-btn">Start</button>
-                <button className="end-btn">End</button>
+                <button onClick={this.startTimer} className="start-btn">Start</button>
+                <button onClick={this.stopTimer} className="end-btn">End</button>
             </div>
         )
     }

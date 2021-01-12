@@ -1,16 +1,38 @@
+import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import Pomodoro from './components/Pomodoro'
+// import Pomodoro from './components/Pomodoro'
+import Timer from './components/Timer';
 import Controls from './components/Controls'
 
-function App() {
-  return (
-    <div className="App">
-      <Navbar />
-      <Pomodoro />
-      <Controls />
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      time: ""
+    }
+  }
+
+  setTime = (currTime) => {
+    this.setState({
+      time: currTime
+    })
+  }
+
+
+  render() {
+
+    console.log("this.state.time --> ", this.state.time)
+
+    return (
+      <div className="App">
+        <Navbar />
+        <Timer setTime={this.setTime} time={this.state.time}/>
+        <Controls />
+      </div>
+    );
+
+  }
 }
 
 export default App;

@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;800&family=Open+Sans&display=swap');
+
+
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0px;
+    height: inherit;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #0d335d;
+    /* opacity: 20%; */
+    /* border: 0.25rem solid #0d335d; */
+    
+}
+
+
+
+.timer-clock {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 50px;
+    margin: 0.5rem;
+    /* color: #160f30; */
+    color: #c1a1d3;
+
+
+}
+

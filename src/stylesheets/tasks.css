@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;800&family=Open+Sans&display=swap');
+
+
+.task-item {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    margin: 0;
+    /* color: #eae7af; */
+    color: #fff3e6;
+    /* color: #0d335d; */
+    /* opacity: 50%; */
+}

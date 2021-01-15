@@ -19,10 +19,14 @@ class App extends React.Component {
     })
   }
 
+  componentDidMount() {
+
+  }
+
 
   render() {
-
     console.log("this.state.time --> ", this.state.time)
+
 
     return (
       <div className="App">
@@ -36,3 +40,4 @@ class App extends React.Component {
 }
 
 export default App;
+ 

@@ -4,6 +4,10 @@ import "../stylesheets/pomodoro.css"
 
 import Tasks from './Tasks';
 
+const setMinutes = undefined
+
+const setSeconds = undefined
+
 class Timer extends React.Component {
     constructor() {
         super()
@@ -13,42 +17,64 @@ class Timer extends React.Component {
         }
     }
 
-  
     componentDidMount () {
         this.countdownTimer()
-        // console.log("this.props.setTime --> ", this.props.setTime([this.state.minutes, this.state.seconds]))
-        // this.props.setTime(`${this.state.minutes} : ${this.state.seconds}`)
+        this.props.setTime(`${this.state.minutes} : ${this.state.seconds}`)
+
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        // console.log("prevProps --", prevProps)
+        // console.log("prevState --- ", prevState)
+        if(prevState.minutes !== this.state.minutes || prevState.seconds !== this.state.seconds) {
+            this.props.setTime(`${this.state.minutes} : ${this.state.seconds}`)
+        }
+
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.setMinutes)
+        clearInterval(this.setSeconds)
     }
 
     countdownTimer = () => {
-        let setMinutes = setInterval(() => {
+        this.setMinutes = setInterval(() => {
+            if(this.state.minutes > 0) {
                 this.setState({
                     minutes: this.state.minutes -1
                 })
                 return this.state.minutes
-            }, 60000)
+            } else {
+                this.setState({
+                    minutes: 30
+                })
+            }
 
-        let setSeconds = setInterval(() => {
-            if(this.state.seconds) {
+        }, 60000)
+
+        this.setSeconds = setInterval(() => {
+            if(this.state.seconds !== 0) {
                 this.setState({
                     seconds: this.state.seconds - 1
                 })
                 return this.state.seconds
+            
+            } else  {
+                
+                this.setState({
+                    seconds: 59 
+                })
             }
-            this.setState({
-                seconds: 59 
-            })
         }, 1000)
-
-        return setMinutes, setSeconds
+            return (
+                this.setMinutes, 
+                this.setSeconds
+            )
     }
 
 
-
-
-
-
     render() {
+
         return (
         <div className="pom-container">
             <div className="timer-container">

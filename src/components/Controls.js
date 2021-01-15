@@ -5,7 +5,8 @@ class Controls extends React.Component {
     constructor() {
         super() 
         this.state ={ 
-
+            break: 5,
+            sound: "on"
         }
         this.startTimer = this.startTimer.bind(this);
         this.stopTimer = this.stopTimer.bind(this);
